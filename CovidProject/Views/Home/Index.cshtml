@@ -1,0 +1,37 @@
+﻿@model List<List<string>>
+@using Newtonsoft.Json;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<script>
+    var data = [];
+    data = JSON.parse('@Html.Raw(JsonConvert.SerializeObject( Model[1]))');
+
+    var names = [];
+     names = JSON.parse('@Html.Raw(JsonConvert.SerializeObject(Model[0]))');
+</script>
+<div class="row">
+    <div class="col-md-8 mx-auto">
+
+       
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Covid Stats</h4>
+            </div>
+            <div class="card-body">
+                <div id="chart"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section Scripts{ 
+    <script src="~/js/index.js">
+
+    </script>
+}
